@@ -13,9 +13,9 @@ then
   salt=`shuf -i 0-9 -n 1`
   sign=`printf '%s' "${appid}${word}${salt}${appsecret}" | md5sum | awk '{print $1}'`
   new_word=`printf '%s' "$word" | sed 's/ /\%20/g'`
-  curl -s "http://openapi.youdao.com/api?q=${new_word}&from=EN&to=zh_CHS&appKey=${appid}&salt=${salt}&sign=${sign}" | jq ". | { phonetic: .basic.phonetic, explains: .basic.explains }"
+  curl -s "http://openapi.youdao.com/api?q=${new_word}&from=EN&to=zh_CHS&appKey=${appid}&salt=${salt}&sign=${sign}" | jq ". | { phonetic: .basic.phonetic, explains: .basic.explains, more: .webdict.url}"
 else
   salt=`shuf -i 0-9 -n 1`
   sign=`printf '%s' "${appid}${word}${salt}${appsecret}" | md5sum | awk '{print $1}'`
-  curl -s "http://openapi.youdao.com/api?q=${word}&from=zh_CHS&to=EN&appKey=${appid}&salt=${salt}&sign=${sign}" | jq ". | { phonetic: .basic.phonetic, explains: .basic.explains }"
+  curl -s "http://openapi.youdao.com/api?q=${word}&from=zh_CHS&to=EN&appKey=${appid}&salt=${salt}&sign=${sign}" | jq ". | { phonetic: .basic.phonetic, explains: .basic.explains, more: .webdict.url}"
 fi
