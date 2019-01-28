@@ -23,7 +23,7 @@ for index, item in enumerate(items):
     link = "https://www.youtube.com" + item.find('h3', attrs={'class':'yt-lockup-title '}).find('a').attrs['href']
 #    title = item.find('h3', attrs={'class':'yt-lockup-title '}).text
     if open(wd+'voa_tmp.list','r').read().find(link) == -1:
-      call([wd+"get-ytb+v.sh", link])
+      call([wd+"get-ytb.sh", link, "+v"])
       f = open(wd+'voa_tmp.list','a')
       f.write(link)
 
