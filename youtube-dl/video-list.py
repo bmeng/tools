@@ -20,11 +20,12 @@ items_wenzhao = soup_wenzhao.findAll('h3', attrs={'class':'yt-lockup-title '})
 
 for index, item in enumerate(items_voa):
   time = item.find('span', attrs={"class":"video-time"})
-  minute = int(time.text.split(':')[0])
-  if minute > 15:
-    link = "https://www.youtube.com" + item.find('h3', attrs={'class':'yt-lockup-title '}).find('a').attrs['href']
-    title = item.find('h3', attrs={'class':'yt-lockup-title '}).text
-    print("Title: " + title + "      " + "URL: " + link + "\n")
+  if time:
+    minute = int(time.text.split(':')[0])
+    if minute > 15:
+      link = "https://www.youtube.com" + item.find('h3', attrs={'class':'yt-lockup-title '}).find('a').attrs['href']
+      title = item.find('h3', attrs={'class':'yt-lockup-title '}).text
+      print("Title: " + title + "      " + "URL: " + link + "\n")
 
 print("\n \n")
 
