@@ -25,6 +25,6 @@ for index, item in enumerate(items):
       title = item.find('h3', attrs={'class':'yt-lockup-title '}).text
       if any( [title.find("海峡论谈") != -1, title.find("焦点对话") != -1, title.find("大家谈") != -1] ):
         if open(wd+'voa_tmp.list','r').read().find(link) == -1:
-          call([wd+"get-ytb.sh", link, "+v"])
+          call([wd+"get-ytb.sh", link, "voa"])
           f = open(wd+'voa_tmp.list','a')
           f.write(link)

@@ -18,11 +18,14 @@ EXT=$(ls $WORKDIR/ | grep "$NAME" | awk -F. '{print $NF }')
 
 
 case $OPT in
-  "+v")
+  "voa")
     ffmpeg -stats -n -v error -i "$WORKDIR/${NAME}.$EXT" -filter:a "volume=2" "$OUTPUT_DIR/${DATE}-${NAME}.mp3"
   ;;
-  "")
+  "wz")
     ffmpeg -stats -n -v error -i "$WORKDIR/${NAME}.$EXT" "$OUTPUT_DIR/${DATE}-文昭-${NAME}.mp3"
+  ;;
+  "jf")
+    ffmpeg -stats -n -v error -i "$WORKDIR/${NAME}.$EXT" "$OUTPUT_DIR/${DATE}-江峰时刻-${NAME}.mp3"
   ;;
   *)
     echo "Incorrect OPT"
