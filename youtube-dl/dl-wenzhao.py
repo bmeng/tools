@@ -21,6 +21,6 @@ link = "https://www.youtube.com" + item0.find('a').attrs['href']
 
 if open(wd+'/wenzhao_tmp.list','r').read().find(link) == -1:
   print("Link not found in file")
-  call([wd+"/get-ytb.sh", link])
+  call([wd+"/get-ytb.sh", link, "文昭"])
   f = open(wd+"/wenzhao_tmp.list", "w")
   f.write(link)
