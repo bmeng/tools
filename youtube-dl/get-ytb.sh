@@ -9,7 +9,7 @@ if [[ -z $URL ]]; then
   exit 1
 fi
 
-if [[ -z $PREFIX ]]; then
+if [[ -n $PREFIX ]]; then
   youtube-dl -x --audio-format mp3 -o "$OUTPUT_DIR/$DATE-$PREFIX-%(title)s.%(ext)s" $URL
 else
   youtube-dl -x --audio-format mp3 -o "$OUTPUT_DIR/$DATE-%(title)s.%(ext)s" $URL
