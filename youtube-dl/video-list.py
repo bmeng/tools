@@ -1,4 +1,4 @@
-#!/usr/bin/python36
+#!/usr/bin/python3
 import requests
 from bs4 import BeautifulSoup as bs
 from subprocess import call
