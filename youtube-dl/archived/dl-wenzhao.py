@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-mport requests
-rom bs4 import BeautifulSoup as bs
-rom subprocess import call
+import requests
+from bs4 import BeautifulSoup as bs
+from subprocess import call
 
 url = "https://www.youtube.com/channel/UCtAIPjABiQD3qjlEl1T5VpA/videos"
 wd = "/root/tools/youtube-dl/"
